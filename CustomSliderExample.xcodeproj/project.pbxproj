@@ -14,6 +14,8 @@
 		D09C174A209136EC0065205C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D09C1748209136EC0065205C /* LaunchScreen.storyboard */; };
 		D09C1755209136F10065205C /* CustomSliderExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09C1754209136F10065205C /* CustomSliderExampleTests.swift */; };
 		D09C1760209136F10065205C /* CustomSliderExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09C175F209136F10065205C /* CustomSliderExampleUITests.swift */; };
+		D09C176E209137E80065205C /* RangeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09C176D209137E80065205C /* RangeSlider.swift */; };
+		D09C1770209142320065205C /* RangeSliderThumbLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09C176F209142320065205C /* RangeSliderThumbLayer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		D09C175B209136F10065205C /* CustomSliderExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CustomSliderExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D09C175F209136F10065205C /* CustomSliderExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSliderExampleUITests.swift; sourceTree = "<group>"; };
 		D09C1761209136F10065205C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D09C176D209137E80065205C /* RangeSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangeSlider.swift; sourceTree = "<group>"; };
+		D09C176F209142320065205C /* RangeSliderThumbLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangeSliderThumbLayer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +103,8 @@
 			children = (
 				D09C173F209136EA0065205C /* AppDelegate.swift */,
 				D09C1741209136EA0065205C /* ViewController.swift */,
+				D09C176D209137E80065205C /* RangeSlider.swift */,
+				D09C176F209142320065205C /* RangeSliderThumbLayer.swift */,
 				D09C1743209136EB0065205C /* Main.storyboard */,
 				D09C1746209136EB0065205C /* Assets.xcassets */,
 				D09C1748209136EC0065205C /* LaunchScreen.storyboard */,
@@ -260,7 +266,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D09C1742209136EA0065205C /* ViewController.swift in Sources */,
+				D09C176E209137E80065205C /* RangeSlider.swift in Sources */,
 				D09C1740209136EA0065205C /* AppDelegate.swift in Sources */,
+				D09C1770209142320065205C /* RangeSliderThumbLayer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
