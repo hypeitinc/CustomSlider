@@ -129,6 +129,7 @@ class RangeSlider: UIControl {
         
         CATransaction.commit()
         
+        sendActions(for: .valueChanged)     // notify any subscribed targets of the changes
         return true
     }
     
@@ -138,10 +139,12 @@ class RangeSlider: UIControl {
         lowerThumbLayer.highlighted = false
         upperThumbLayer.highlighted = false
         
+        // MARK: TODO: Make sure both lower and upper value cannot be equal as that would be a loop of zero seconds. Or maybe this is ok???
+        
         // Debug
-        print(thumbWidth)
-        print(lowerValue)
-        print(upperValue)
+//        print(thumbWidth)
+//        print(lowerValue)
+//        print(upperValue)
     }
     
     
