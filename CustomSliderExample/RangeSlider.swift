@@ -12,11 +12,57 @@ import UIKit
 import QuartzCore
 
 class RangeSlider: UIControl {
-    var minimumValue = 0.0
-    var maximumValue = 1.0
-    var lowerValue = 0.2                // user input result
-    var upperValue = 0.8                // user input result
-    var previousLocation = CGPoint()    // track the touch locations
+    
+    var minimumValue: Double = 0.0 {
+        didSet {
+            updateLayerFrames()
+        }
+    }
+    
+    var maximumValue: Double = 1.0 {
+        didSet {
+            updateLayerFrames()
+        }
+    }
+    
+    var lowerValue: Double = 0.2 {
+        didSet {
+            updateLayerFrames()
+        }
+    }
+    
+    var upperValue: Double = 0.8 {
+        didSet {
+            updateLayerFrames()
+        }
+    }
+    
+    var trackTintColor: UIColor = UIColor(white: 0.9, alpha: 1.0) {
+        didSet {
+            trackLayer.setNeedsDisplay()
+        }
+    }
+    
+    var trackHighlightTintColor: UIColor = UIColor(red: 0.0, green: 0.45, blue: 0.94, alpha: 1.0) {
+        didSet {
+            trackLayer.setNeedsDisplay()
+        }
+    }
+    
+    var thumbTintColor: UIColor = UIColor.white {
+        didSet {
+            lowerThumbLayer.setNeedsDisplay()
+            upperThumbLayer.setNeedsDisplay()
+        }
+    }
+    
+    var curvaceousness: CGFloat = 1.0 {
+        didSet {
+            trackLayer.setNeedsDisplay()
+            lowerThumbLayer.setNeedsDisplay()
+            upperThumbLayer.setNeedsDisplay()
+        }
+    }
     
     // These three layers — trackLayer, lowerThumbLayer, and upperThumbLayer — are used to render the various components of the slider control. thumbWidth is used for layout purposes.
     let trackLayer = RangeSliderTrackLayer()
@@ -26,11 +72,8 @@ class RangeSlider: UIControl {
     var thumbWidth: CGFloat {
         return CGFloat(bounds.height)
     }
-    
-    var trackTintColor = UIColor(white: 0.9, alpha: 1.0)
-    var trackHighlightTintColor = UIColor(red: 0.0, green: 0.45, blue: 0.94, alpha: 1.0)
-    var thumbTintColor = UIColor.white
-    var curvaceousness : CGFloat = 1.0  // decides the radius of the track ends. 1.0 -> r=0.5 height
+ 
+     var previousLocation = CGPoint()    // track the touch locations
     
  
     override init(frame: CGRect) {
@@ -56,6 +99,8 @@ class RangeSlider: UIControl {
     
     
     func updateLayerFrames() {
+        CATransaction.begin()
+        CATransaction.setDisableActions(true)
         trackLayer.frame = bounds.insetBy(dx: 0.0, dy: bounds.height / 3)
         trackLayer.setNeedsDisplay()
         
@@ -69,6 +114,7 @@ class RangeSlider: UIControl {
         upperThumbLayer.frame = CGRect(x: upperThumbCenter - thumbWidth / 2.0, y: 0.0,
                                        width: thumbWidth, height: thumbWidth)
         upperThumbLayer.setNeedsDisplay()
+        CATransaction.commit()
     }
     
     
@@ -125,12 +171,12 @@ class RangeSlider: UIControl {
         }
         
         // 3. Update the UI
-        CATransaction.begin()
-        CATransaction.setDisableActions(true)
-        
-        updateLayerFrames()
-        
-        CATransaction.commit()
+//        CATransaction.begin()
+//        CATransaction.setDisableActions(true)
+//        
+//        updateLayerFrames()
+//        
+//        CATransaction.commit()
         
         sendActions(for: .valueChanged)     // notify any subscribed targets of the changes
         return true

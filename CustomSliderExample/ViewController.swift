@@ -15,10 +15,14 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
- //       rangeSlider.backgroundColor = UIColor.red
         view.addSubview(rangeSlider)
         
         rangeSlider.addTarget(self, action: #selector(rangeSliderValueChanged), for: .valueChanged)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) {
+            self.rangeSlider.trackHighlightTintColor = UIColor.red
+            self.rangeSlider.curvaceousness = 0.0
+        }
     }
     
     override func viewDidLayoutSubviews() {
