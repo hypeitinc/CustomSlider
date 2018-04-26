@@ -18,8 +18,8 @@ class RangeSlider: UIControl {
     var upperValue = 0.8                // user input result
     var previousLocation = CGPoint()    // track the touch locations
     
-    // These three layers — trackLayer, lowerThumbLayer, and upperThumbLayer — will be used to render the various components of your slider control. thumbWidth will be used for layout purposes.
-    let trackLayer = CALayer()
+    // These three layers — trackLayer, lowerThumbLayer, and upperThumbLayer — are used to render the various components of the slider control. thumbWidth is used for layout purposes.
+    let trackLayer = RangeSliderTrackLayer()
     let lowerThumbLayer = RangeSliderThumbLayer()
     let upperThumbLayer = RangeSliderThumbLayer()
     
@@ -27,23 +27,26 @@ class RangeSlider: UIControl {
         return CGFloat(bounds.height)
     }
     
+    var trackTintColor = UIColor(white: 0.9, alpha: 1.0)
+    var trackHighlightTintColor = UIColor(red: 0.0, green: 0.45, blue: 0.94, alpha: 1.0)
+    var thumbTintColor = UIColor.white
+    var curvaceousness : CGFloat = 1.0  // decides the radius of the track ends. 1.0 -> r=0.5 height
+    
+ 
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        // Create three layers and add them as children of the control’s root layer,
-        trackLayer.backgroundColor = UIColor.blue.cgColor
+        trackLayer.rangeSlider = self
+        trackLayer.contentsScale = UIScreen.main.scale  // make sure it looks good on retina displays
         layer.addSublayer(trackLayer)
         
-        lowerThumbLayer.backgroundColor = UIColor.green.cgColor
+        lowerThumbLayer.rangeSlider = self
+        lowerThumbLayer.contentsScale = UIScreen.main.scale
         layer.addSublayer(lowerThumbLayer)
         
-        upperThumbLayer.backgroundColor = UIColor.green.cgColor
-        layer.addSublayer(upperThumbLayer)
-        
-        updateLayerFrames()  // Update the layer frames to fit
-        
-        lowerThumbLayer.rangeSlider = self
         upperThumbLayer.rangeSlider = self
+        upperThumbLayer.contentsScale = UIScreen.main.scale
+        layer.addSublayer(upperThumbLayer)
     }
     
     
@@ -140,11 +143,6 @@ class RangeSlider: UIControl {
         upperThumbLayer.highlighted = false
         
         // MARK: TODO: Make sure both lower and upper value cannot be equal as that would be a loop of zero seconds. Or maybe this is ok???
-        
-        // Debug
-//        print(thumbWidth)
-//        print(lowerValue)
-//        print(upperValue)
     }
     
     
