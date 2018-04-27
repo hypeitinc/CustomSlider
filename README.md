@@ -44,9 +44,13 @@ var upperValue: Double = 0.8       // current slider value for lower thumb
 
 var trackTintColor: UIColor = UIColor(white: 0.9, alpha: 1.0)
 
-var trackHighlightTintColor: UIColor = UIColor(red: 0.0, green: 0.45, blue: 0.94, alpha: 1.0) {
+var trackHighlightTintColor: UIColor = UIColor(red: 0.0, green: 0.45, blue: 0.94, alpha: 1.0)
 
-var thumbTintColor: UIColor = UIColor.white {
+var thumbLineWidth: CGFloat = 1.0   // the outline line width for the thumbs
+
+var thumbStrokeColor: UIColor = UIColor.gray    // the outline line color for the thumbs
+
+var thumbTintColor: UIColor = UIColor.white
 
 var thumbType = 0                      // e.g. number of corners:  0 = circle , 3 = triangle, 4 = square
 

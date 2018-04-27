@@ -49,6 +49,20 @@ class RangeSlider: UIControl {
         }
     }
     
+    var thumbLineWidth: CGFloat = 1.0 {
+        didSet {
+            lowerThumbLayer.setNeedsDisplay()
+            upperThumbLayer.setNeedsDisplay()
+        }
+    }
+    
+    var thumbStrokeColor: UIColor = UIColor.gray {
+        didSet {
+            lowerThumbLayer.setNeedsDisplay()
+            upperThumbLayer.setNeedsDisplay()
+        }
+    }
+    
     var thumbTintColor: UIColor = UIColor.white {
         didSet {
             lowerThumbLayer.setNeedsDisplay()

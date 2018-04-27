@@ -51,8 +51,8 @@ class RangeSliderThumbLayer: CALayer {
             ctx.fillPath()
             
             // Outline
-            ctx.setStrokeColor(shadowColor.cgColor)
-            ctx.setLineWidth(0.5)
+            ctx.setStrokeColor(slider.thumbStrokeColor.cgColor)
+            ctx.setLineWidth(slider.thumbLineWidth)
             ctx.addPath(thumbPath.cgPath)
             ctx.strokePath()
             

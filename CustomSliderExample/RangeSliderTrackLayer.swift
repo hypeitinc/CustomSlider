@@ -19,7 +19,8 @@ class RangeSliderTrackLayer: CALayer {
         if let slider = rangeSlider {
             // Clip the track shape
             let cornerRadius = bounds.height * slider.curvaceousness / 2.0
-            let scaledBounds = CGRect(x: 0, y:0, width: bounds.width, height: bounds.height * slider.trackSizeScale)
+            let trackOriginY = bounds.height * (1-slider.trackSizeScale) / 2  // get the right y-offset if the track is scaled
+            let scaledBounds = CGRect(x: 0, y: trackOriginY, width: bounds.width, height: bounds.height * slider.trackSizeScale)
             let path = UIBezierPath(roundedRect: scaledBounds, cornerRadius: cornerRadius)
             ctx.addPath(path.cgPath)
             
@@ -32,7 +33,7 @@ class RangeSliderTrackLayer: CALayer {
             ctx.setFillColor(slider.trackHighlightTintColor.cgColor)
             let lowerValuePosition = CGFloat(slider.positionForValue(value: slider.lowerValue))
             let upperValuePosition = CGFloat(slider.positionForValue(value: slider.upperValue))
-            let rect = CGRect(x: lowerValuePosition, y: 0.0, width: upperValuePosition - lowerValuePosition, height: scaledBounds.height)
+            let rect = CGRect(x: lowerValuePosition, y: trackOriginY, width: upperValuePosition - lowerValuePosition, height: scaledBounds.height)
             ctx.fill(rect)
         }
     }
