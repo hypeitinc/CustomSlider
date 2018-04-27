@@ -56,6 +56,19 @@ class RangeSlider: UIControl {
         }
     }
     
+    var thumbType = 0 {                     // e.g. number of corners:  0 = circle , 3 = triangle, 4 = square
+        didSet {
+            lowerThumbLayer.setNeedsDisplay()
+            upperThumbLayer.setNeedsDisplay()
+        }
+    }
+    
+    var trackSizeScale: CGFloat = 1.0  {    // to force track size relative to thumbs
+        didSet {
+            trackLayer.setNeedsDisplay()
+        }
+    }
+
     var curvaceousness: CGFloat = 1.0 {
         didSet {
             trackLayer.setNeedsDisplay()
@@ -72,8 +85,8 @@ class RangeSlider: UIControl {
     var thumbWidth: CGFloat {
         return CGFloat(bounds.height)
     }
- 
-     var previousLocation = CGPoint()    // track the touch locations
+    
+    var previousLocation = CGPoint()       // track the touch locations
     
  
     override init(frame: CGRect) {
@@ -171,13 +184,6 @@ class RangeSlider: UIControl {
         }
         
         // 3. Update the UI
-//        CATransaction.begin()
-//        CATransaction.setDisableActions(true)
-//        
-//        updateLayerFrames()
-//        
-//        CATransaction.commit()
-        
         sendActions(for: .valueChanged)     // notify any subscribed targets of the changes
         return true
     }
@@ -188,7 +194,6 @@ class RangeSlider: UIControl {
         lowerThumbLayer.highlighted = false
         upperThumbLayer.highlighted = false
         
-        // MARK: TODO: Make sure both lower and upper value cannot be equal as that would be a loop of zero seconds. Or maybe this is ok???
     }
     
     

@@ -24,7 +24,24 @@ class RangeSliderThumbLayer: CALayer {
         if let slider = rangeSlider {
             let thumbFrame = bounds.insetBy(dx: 2.0, dy: 2.0)
             let cornerRadius = thumbFrame.height * slider.curvaceousness / 2.0
-            let thumbPath = UIBezierPath(roundedRect: thumbFrame, cornerRadius: cornerRadius)
+            let corners = rangeSlider?.thumbType
+            
+            var thumbPath : UIBezierPath
+            
+            switch corners! {
+            case 0:
+                thumbPath = UIBezierPath(roundedRect: thumbFrame, cornerRadius: cornerRadius)
+            case 3:
+                let center = CGPoint(x: thumbFrame.width/2, y: thumbFrame.height/2)
+                thumbPath = trianglePathWithCenter(center: center, side: bounds.width / 2)
+            case 4:
+                thumbPath = UIBezierPath(rect: thumbFrame)
+            default:
+                thumbPath = UIBezierPath(roundedRect: thumbFrame, cornerRadius: cornerRadius)
+            }
+            
+            // print("Corners: \(corners!) Path: \(thumbPath)")
+
             
             // Fill - with a subtle shadow
             let shadowColor = UIColor.gray
@@ -46,5 +63,21 @@ class RangeSliderThumbLayer: CALayer {
             }
         }
     }
+    
+    func trianglePathWithCenter(center: CGPoint, side: CGFloat) -> UIBezierPath {
+        let path = UIBezierPath()
+        
+        let startX = center.x - side / 2
+        let startY = center.y - side / 2
+        
+        path.move(to: CGPoint(x: startX, y: startY))
+        path.addLine(to: CGPoint(x: startX + side, y: startY))
+        path.addLine(to: CGPoint(x: startX + side/2, y: startY + side))
+        path.close()
+        
+        return path
+    }
+    
+    
     
 }

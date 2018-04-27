@@ -38,6 +38,9 @@
 
 /* Begin PBXFileReference section */
 		D08E709B20915FBE0065BE19 /* RangeSliderTrackLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangeSliderTrackLayer.swift; sourceTree = "<group>"; };
+		D08E709D20929B650065BE19 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		D08E709E20929B8C0065BE19 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		D08E70A320929F790065BE19 /* custom_slider_example.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = custom_slider_example.png; sourceTree = "<group>"; };
 		D09C173C209136EA0065205C /* CustomSliderExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomSliderExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D09C173F209136EA0065205C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D09C1741209136EA0065205C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -80,13 +83,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D08E709F20929D8F0065BE19 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				D08E70A320929F790065BE19 /* custom_slider_example.png */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
 		D09C1733209136E80065205C = {
 			isa = PBXGroup;
 			children = (
+				D08E709D20929B650065BE19 /* README.md */,
+				D08E709E20929B8C0065BE19 /* LICENSE */,
 				D09C173E209136EA0065205C /* CustomSliderExample */,
 				D09C1753209136F10065205C /* CustomSliderExampleTests */,
 				D09C175E209136F10065205C /* CustomSliderExampleUITests */,
 				D09C173D209136EA0065205C /* Products */,
+				D08E709F20929D8F0065BE19 /* Assets */,
 			);
 			sourceTree = "<group>";
 		};
