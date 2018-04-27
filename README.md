@@ -9,7 +9,7 @@ Take it from here and make it what you want it to be.
 
 
 <img src="https://raw.githubusercontent.com/hypeitinc/CustomSlider/master/Assets/custom_slider_example.png" width="350" />
-
+<img src="https://raw.githubusercontent.com/hypeitinc/CustomSlider/master/Assets/custom_slider_example2.png" width="350" />
 
 ## Features
 
