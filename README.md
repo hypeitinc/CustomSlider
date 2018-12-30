@@ -2,7 +2,10 @@
 
 https://github.com/hypeitinc/CustomSlider.git
 
-Custom range slider with two thumbs for iOS 11 and Swift 4
+Custom range slider with two thumbs for iOS 12 and Swift 4.2
+Added parameter for setting discrete steps and haptic feedback.
+Fully IBDesignable and IBInspectable.
+The included example shows both fully programatic setup as well as using the Interface Builder Storyboards.
 A Swift 4 conversion of the tutorial "How To Make a Custom Control Tutorial: A Reusable Slider" on raywenderlich.com
 https://www.raywenderlich.com/76433/how-to-make-a-custom-control-swift
 Take it from here and make it what you want it to be.
@@ -10,6 +13,7 @@ Take it from here and make it what you want it to be.
 
 <img src="https://raw.githubusercontent.com/hypeitinc/CustomSlider/master/Assets/custom_slider_example.png" width="350" />
 <img src="https://raw.githubusercontent.com/hypeitinc/CustomSlider/master/Assets/custom_slider_example2.png" width="350" />
+<img src="https://raw.githubusercontent.com/hypeitinc/CustomSlider/master/Assets/custom_slider_example3.png" width="800" />
 
 ## Features
 
@@ -34,6 +38,10 @@ You can also just download and build this project as it is.
 
 ### Properties - default values
 
+var hapticsOn = false           // activate haptic feedback for slider movements
+
+var discreteSteps: Int = 0      // Number of discrete steps for the slider over the full range
+
 var minimumValue: Double = 0.0
 
 var maximumValue: Double = 1.0
@@ -52,7 +60,7 @@ var thumbStrokeColor: UIColor = UIColor.gray    // the outline line color for th
 
 var thumbTintColor: UIColor = UIColor.white
 
-var thumbType = 0                      // e.g. number of corners:  0 = circle , 3 = triangle, 4 = square
+var thumbType = 0                      // e.g. number of corners:  0 = circle , 2 = stroke, 3 = triangle, 4 = square
 
 var trackSizeScale: CGFloat = 1.0   // to force track size relative to thumbs
 

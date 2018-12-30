@@ -31,6 +31,8 @@ class RangeSliderThumbLayer: CALayer {
             switch corners! {
             case 0:
                 thumbPath = UIBezierPath(roundedRect: thumbFrame, cornerRadius: cornerRadius)
+            case 2:
+                thumbPath = UIBezierPath(rect: bounds.insetBy(dx: 13.0, dy: 2.0))
             case 3:
                 let center = CGPoint(x: thumbFrame.width/2, y: thumbFrame.height/2)
                 thumbPath = trianglePathWithCenter(center: center, side: bounds.width / 2)
