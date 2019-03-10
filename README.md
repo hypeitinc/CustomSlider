@@ -90,4 +90,4 @@ https://www.raywenderlich.com/76433/how-to-make-a-custom-control-swift
 
 ## License
 
-Licensed under [GNU GPL v. 3.0](https://opensource.org/licenses/GPL-3.0). See `LICENSE` for details.
+Licensed under [MIT License](https://opensource.org/licenses/MIT). See `LICENSE` for details.
